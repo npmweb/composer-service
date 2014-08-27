@@ -1,0 +1,22 @@
+{
+    "name": "npmweb/composer-service",
+    "description": "Provides access to information about Composer packages",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Josh Justice",
+            "email": "josh.justice@northpoint.org"
+        }
+    ],
+    "require": {
+        "knplabs/packagist-api": "1.*@dev",
+        "cpliakas/git-wrapper": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "NpmWeb\\ComposerService": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
