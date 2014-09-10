@@ -15,8 +15,17 @@ class PackagistComposerService implements ComposerServiceInterface {
     {
         try {
             $packagistInfo = $this->packagist->get($packageName);
+
+            $result = [];
+            $result['description'] = $packagistInfo->getDescription();
+
+            $homepage = $packagistInfo->getRepository();
+            if( 0 !== strpos($homepage,'http') ) {
+                $homepage = 'https://packagist.org/packages/'.$packageName;
+            }
             return (object)array(
                 'description' => $packagistInfo->getDescription(),
+                'homepage' => $homepage,
             );
         } catch( ClientErrorResponseException $e ) {
             return null;

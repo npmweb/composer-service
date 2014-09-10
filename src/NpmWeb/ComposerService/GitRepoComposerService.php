@@ -43,6 +43,12 @@ class GitRepoComposerService implements ComposerServiceInterface {
                     $result[$field] = $composerConfig->$field;
                 }
             }
+
+            // get homepage
+            if( preg_match('/^git@(.+):(.+\/.+)/', $repoUrl, $matches) ) {
+                $result['homepage'] = 'https://'.$matches[1].'/'.$matches[2];
+            }
+
             return (object)$result;
         }
     }
