@@ -41,6 +41,8 @@ class GitRepoComposerService implements ComposerServiceInterface {
             foreach( ['type','description','require','repositories'] as $field ) {
                 if( isset($composerConfig->$field) ) {
                     $result[$field] = $composerConfig->$field;
+                } else {
+                    $result[$field] = null;
                 }
             }
 
