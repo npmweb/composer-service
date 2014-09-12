@@ -57,7 +57,7 @@ class GitRepoComposerService implements ComposerServiceInterface {
 
     protected function getWorkingCopy( $packageName, $gitUrl )
     {
-        $folderName = preg_replace('/\W+/','_', $packageName);
+        $folderName = preg_replace('/[^-\w\/.]+/','_', $packageName);
 
         $wcPath = storage_path().'/git/'.$folderName;
 
